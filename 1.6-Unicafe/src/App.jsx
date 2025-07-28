@@ -12,8 +12,8 @@ const FeedbackButtons = ({action, label}) => {
 
 const Statistics = ({good, neutral, bad}) =>{
   const total = good + neutral + bad;
-
-  return(
+  if(total != 0){
+    return(
     <div>
       <h1>Statistics</h1>
       <p>good: {good}</p>
@@ -23,6 +23,14 @@ const Statistics = ({good, neutral, bad}) =>{
       <p>positive: {(total ? (100 * good / total).toFixed(2) : "0.00")}%</p>
  </div>
   )
+  }
+  return(
+    <div>
+      <h1>Statistics</h1>
+      <p>No feedback given</p>
+    </div>
+  )
+  
 }
 
 const App = () => {
