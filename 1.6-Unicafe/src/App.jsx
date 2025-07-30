@@ -12,7 +12,7 @@ const FeedbackButtons = ({action, label}) => {
 
 const StatisticLine = (props) =>{
   return(
-    <p>{props.label}: {props.value}</p>
+    <td>{props.label}: {props.value}</td>
   )
 }
 
@@ -22,28 +22,40 @@ const Statistics = ({good, neutral, bad}) =>{
     return(
     <div>
       <h1>Statistics</h1>
-      <StatisticLine
-        label = "good"
-        value = {good}
-      />
-      <StatisticLine
-        label = "neutral"
-        value = {neutral}
-      />
-      <StatisticLine
-        label = "bad"
-        value = {bad}
-      />
-      <StatisticLine
-        label = "average"
-        value = {(total ? (100 * good / total).toFixed(2) : "0.00")}
-      />
-      <StatisticLine
-        label = "positive"
-        value = {(total ? (100 * good / total).toFixed(2) : "0.00")}
-      />
- </div>
-  )
+      <table>
+        <tr>
+            <StatisticLine
+              label = "good"
+              value = {good}
+            />
+        </tr>
+        <tr>
+            <StatisticLine
+              label = "neutral"
+              value = {neutral}
+            />
+        </tr>
+        <tr>
+            <StatisticLine
+              label = "average"
+              value = {(total ? (100 * good / total).toFixed(2) : "0.00")}
+            />
+        </tr>
+        <tr>
+            <StatisticLine
+              label = "good"
+              value = {good}
+            />
+        </tr>
+        <tr>
+            <StatisticLine
+              label = "positive"
+              value = {(total ? (100 * good / total).toFixed(2) : "0.00")}
+            />
+        </tr>
+      </table>
+    </div>
+    )
   }
   return(
     <div>
